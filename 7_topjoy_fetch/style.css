@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #1C203A;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+}
+#divecske{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+#image{
+    margin-bottom: 1rem;
+}
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+}
+.massageboksz, .customB{
+    color: white;
+    background-color: #198754;
+    width: 100%;
+    height: 5rem;
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 5rem;
+    border: none;
+    border-radius: 0.25rem;
+}
+.customB{
+    background-color: #23AF6B;
+    cursor: pointer;
+    border: none;
+}
+.customB:hover{
+    filter: grayscale(10%);
+}
