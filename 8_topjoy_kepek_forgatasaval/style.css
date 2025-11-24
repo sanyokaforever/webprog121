@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url('./images/background.png');
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    background-color: #198754;
+    background-size: cover;
+}
+.tarolo{
+    height: 400px;
+    width: 250px;
+    position: relative;
+}
+.hatterkep{
+    position: absolute;
+}
+#kupak{
+    height: 400px;
+    width: 250px;
+}
+.szovegtarolo{
+    position: absolute;
+    height: 400px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}
+#szoveg{
+    text-align: center;
+    overflow-wrap: break-word;
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+
+}
