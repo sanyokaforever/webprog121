@@ -20,7 +20,7 @@ console.log(uzik);
 const kupakanimacio = async(start, stop) => {
     const lepes = start < stop ? 1 : -1;
     for(let index = start; index !== stop + lepes; index += lepes){
-        await new Promise(resolve => setTimeout(resolve, 13));
+        await new Promise(resolve => setTimeout(resolve, 20));
         kupak.src = `./images/bottlecap_${index}.png`;
     }
 }
