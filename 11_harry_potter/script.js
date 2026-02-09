@@ -22,7 +22,7 @@ function displayCharacters(chars){
         const div2 = document.createElement('div')
         const h3 = document.createElement('h3')
         card.className = 'card'
-        image.src = char.image 
+        image.src = fixImageUrl(char.image) 
         image.alt = char.name
         div2.className = 'content'
         h3.textContent = char.name
@@ -34,4 +34,10 @@ function displayCharacters(chars){
         karakter.append(card)
         console.log(card)
     });
+}
+function fixImageUrl(url){
+    if (!url) {
+        return ''
+    }
+    return url.replace('http://hp-api.herokuapp.com', 'https://hp-api.onrender.com').replace('http://', 'https://')
 }
