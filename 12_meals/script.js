@@ -1,10 +1,9 @@
 const gomb = document.getElementById("fetch")
 const tarolo = document.getElementById("tarolo")
 gomb.addEventListener("click", betoltes)
-const URL = 'https://www.themealdb.com/api/json/v1/1/categories.php'
 async function betoltes(){
     tarolo.innerHTML = ""
-    const val = await fetch(URL)
+    const val = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
     const adat = await val.json()
     val.categories.forEach(kard => {
         const card = document.createElement("div")
