@@ -1,11 +1,11 @@
 const gomb = document.getElementById("fetch")
 const tarolo = document.getElementById("tarolo")
-gomb.addEventListener("click", betoltes)
+gomb.addEventListener('click', betoltes)
 async function betoltes(){
     tarolo.innerHTML = ""
     const val = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
     const adat = await val.json()
-    val.categories.forEach(kard => {
+    adat.categories.forEach(kard => {
         const card = document.createElement("div")
         card.className = "card"
         const img = document.createElement("img")
