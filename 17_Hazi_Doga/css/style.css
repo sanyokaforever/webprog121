@@ -3,25 +3,33 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
 }
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #0B1020;
     color: white;
     padding: 2rem;
 }
+
 .page-layout {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas:
+        "nav"
+        "hero"
+        "main"
+        "foot";
     gap: 1.5rem;
 }
+
 .menu {
-    margin-bottom: 0px;
+    grid-area: nav;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,16 +38,64 @@ body {
     border-radius: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+.hero {
+    grid-area: hero;
+    background: linear-gradient(135deg, #4F46E5, #9333EA);
+    padding: 4rem 3rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.content-layout {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 0 1.5rem;
+    align-items: stretch;
+    background: transparent;
+    border: none;
+    overflow: hidden;
+}
+
+aside {
+    width: 100%;
+    background: #161B2E;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#gallery-section {
+    background: #111827;
+    padding: 2rem;
+    height: 100%;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer {
+    grid-area: foot;
+    text-align: center;
+    padding: 1.5rem;
+    background: #090D18;
+    border-radius: 1rem;
+    color: #64748B;
+    font-size: 0.85rem;
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: #60A5FA;
 }
+
 .nav-links {
     list-style: none;
     display: flex;
     gap: 1rem;
 }
+
 .nav-links a {
     text-decoration: none;
     color: #E5E7EB;
@@ -49,29 +105,27 @@ body {
     font-size: 0.9rem;
     transition: 0.3s;
 }
+
 .nav-links a:hover {
     background: #334155;
 }
-.hero {
-    margin-top: 0px;
-    background: linear-gradient(135deg, #4F46E5, #9333EA);
-    padding: 4rem 3rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
+
 .hero-content {
     max-width: 600px;
 }
+
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1.5rem;
     font-weight: 800;
 }
+
 .hero p {
     color: #E0E7FF;
     margin-bottom: 2rem;
     line-height: 1.6;
 }
+
 .hero-btn {
     display: inline-block;
     background: #000;
@@ -82,31 +136,25 @@ body {
     font-weight: bold;
     transition: 0.3s;
 }
+
 .hero-btn:hover {
     transform: scale(1.05);
 }
-.content-layout {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    gap: 1.5rem;
-}
-aside {
-    background: #161B2E;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
+
 aside h2 {
     color: #60A5FA;
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
+
 .side-menu {
     list-style: none;
 }
+
 .side-menu li {
     margin-bottom: 0.8rem;
 }
+
 .side-menu li a {
     text-decoration: none;
     color: #94A3B8;
@@ -117,43 +165,181 @@ aside h2 {
     font-size: 0.9rem;
     transition: 0.2s;
 }
+
 .side-menu li a:hover {
     background: rgba(255, 255, 255, 0.1);
     color: white;
-}
-#gallery-section {
-    background: #111827;
-    padding: 2rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .article-head h2 {
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
 }
+
 .bento-grid {
     display: grid;
+    grid-template-areas:
+        "card1 card1 card2 card3"
+        "card1 card1 card4 card4"
+        "card5 card6 card4 card4"
+        "card7 card7 card8 card8";
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 180px;
+    grid-template-rows: repeat(4, 140px);
     gap: 1rem;
 }
+
+.movie-card {
+    position: relative;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    min-height: unset;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.movie-info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.movie-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.badge-wrap {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.badge {
+    background: #2563eb;
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+}
+
+
 .movie-card:nth-child(1) {
-    grid-column: span 2;
-    grid-row: span 2;
+    grid-area: card1;
 }
+
+.movie-card:nth-child(2) {
+    grid-area: card2;
+}
+
+.movie-card:nth-child(3) {
+    grid-area: card3;
+}
+
 .movie-card:nth-child(4) {
-    grid-column: span 2;
-    grid-row: span 2;
+    grid-area: card4;
 }
+
+.movie-card:nth-child(5) {
+    grid-area: card5;
+}
+
+.movie-card:nth-child(6) {
+    grid-area: card6;
+}
+
 .movie-card:nth-child(7) {
-    grid-column: span 2;
+    grid-area: card7;
 }
-footer {
-    text-align: center;
-    padding: 1.5rem;
-    background: #090D18;
-    border-radius: 1rem;
-    color: #64748B;
-    font-size: 0.85rem;
+
+.movie-card:nth-child(8) {
+    grid-area: card8;
+}
+
+@media (max-width: 1000px) {
+    .bento-grid {
+        grid-template-areas:
+            "card1 card1 card2 card3"
+            "card1 card1 card4 card4"
+            "card5 card6 card4 card4"
+            "card7 card7 card8 card8";
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 140px);
+    }
+
+    .content-layout {
+        grid-template-columns: 220px 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+    }
+
+    .content-layout {
+        grid-template-columns: 1fr;
+        border-radius: 1rem;
+    }
+
+    aside {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .bento-grid {
+        grid-template-areas:
+            "card1 card1"
+            "card2 card3"
+            "card4 card4"
+            "card5 card6"
+            "card7 card8";
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 260px 160px 160px 160px 160px;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 1rem;
+    }
+
+    .hero {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .bento-grid {
+        grid-template-areas:
+            "card1"
+            "card2"
+            "card3"
+            "card4"
+            "card5"
+            "card6"
+            "card7"
+            "card8";
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(8, 180px);
+    }
 }
